@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            stylesheets="@../../../resources/styles.css" prefWidth="500" prefHeight="600">
+    <top>
+        <HBox alignment="CENTER">
+            <Label text="Tic Tac Toe"/>
+        </HBox>
+    </top>
+</BorderPane>
