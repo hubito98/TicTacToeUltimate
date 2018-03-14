@@ -48,7 +48,6 @@ public class BigField extends GridPane {
     public void setNextActiveTinyField(int rowIndex, int colIndex) {
         if(isNextActiveTinyFieldSolved(rowIndex, colIndex)) {
             setAllTinyFieldsActive(true);
-            tinyFields[rowIndex][colIndex].setActive(false);
         } else {
             setAllTinyFieldsActive(false);
             tinyFields[rowIndex][colIndex].setActive(true);
@@ -60,9 +59,13 @@ public class BigField extends GridPane {
     }
 
     public void setAllTinyFieldsActive(boolean isActive) {
-        for(int row = 0; row < tinyFields.length; row++) {
-            for(int col = 0; col < tinyFields[row].length; col++) {
-                tinyFields[row][col].setActive(isActive);
+        for (int row = 0; row < tinyFields.length; row++) {
+            for (int col = 0; col < tinyFields[row].length; col++) {
+                if(isNextActiveTinyFieldSolved(row, col)) {
+                    tinyFields[row][col].setActive(false);
+                } else {
+                    tinyFields[row][col].setActive(isActive);
+                }
             }
         }
     }

@@ -15,7 +15,7 @@ public class FieldNode extends Button {
         this.colIndex = colIndex;
     }
 
-    public void putSymbol(String symbol) {
+    public synchronized void putSymbol(String symbol) {
         setText(symbol);
         setId(symbol);
     }

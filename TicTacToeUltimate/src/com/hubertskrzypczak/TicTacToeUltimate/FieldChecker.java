@@ -3,11 +3,18 @@ package com.hubertskrzypczak.TicTacToeUltimate;
 public class FieldChecker {
 
     public static boolean checkSolution(String fieldAsString, String symbol) {
+        if(!isValidInput(fieldAsString, symbol)) {
+            return false;
+        }
         if(checkRowsAndColumns(fieldAsString, symbol) ||
                 checkSkews(fieldAsString, symbol)) {
             return true;
         }
         return false;
+    }
+
+    private static boolean isValidInput(String fieldAsString, String symbol) {
+        return !(symbol == null || fieldAsString == null || fieldAsString.length() < 9);
     }
 
     private static boolean checkRowsAndColumns(String fieldAsString, String symbol) {
@@ -48,6 +55,9 @@ public class FieldChecker {
     }
 
     public static boolean isDraw(String fieldAsString) {
+        if(fieldAsString == null || fieldAsString.length() < 9) {
+            return false;
+        }
         return (fieldAsString.substring(0, 9).replaceAll("[XO]", "").length() == 0);
     }
 }

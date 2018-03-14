@@ -1,5 +1,6 @@
 package com.hubertskrzypczak.TicTacToeUltimate;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
@@ -31,7 +32,8 @@ public class TinyField extends GridPane {
             if(FieldChecker.checkSolution(this.toString(), currentPlayerSymbol)) {
                 setWinPlayerSymbol(currentPlayerSymbol);
                 parent.checkForWin(currentPlayerSymbol);
-            } else if (FieldChecker.isDraw(this.toString())){
+            }
+            else if (FieldChecker.isDraw(this.toString())){
                 setDrawSymbol();
                 parent.checkForDraw();
             }
